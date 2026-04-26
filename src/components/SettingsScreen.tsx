@@ -20,7 +20,9 @@ export function SettingsScreen(props: SettingsProps) {
         <label><input type="checkbox" checked={props.audioEnabled} onChange={(e: ChangeEvent<HTMLInputElement>) => props.setAudioEnabled(e.target.checked)} /> Audio</label>
         <label>Text speed
           <select value={props.textSpeed} onChange={(e: ChangeEvent<HTMLSelectElement>) => props.setTextSpeed(e.target.value as TextSpeed)}>
-            <option value="slow">Slow</option><option value="normal">Normal</option><option value="fast">Fast</option>
+            <option value="slow">TTY 100 baud</option>
+            <option value="normal">TTY 300 baud</option>
+            <option value="fast">High-speed copy</option>
           </select>
         </label>
         <label>Theme

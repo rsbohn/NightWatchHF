@@ -92,7 +92,6 @@ function App() {
           utc={utc}
           frequency={receiver.frequency}
           mode={receiver.mode}
-          clarity={receiver.clarity}
           signalMeter={receiver.signalMeter}
           noiseMeter={receiver.noiseMeter}
           lines={stream}

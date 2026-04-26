@@ -4,13 +4,11 @@ import { Controls } from './Controls';
 import { FrequencyDisplay } from './FrequencyDisplay';
 import { Meter } from './Meter';
 import { ReceivePane } from './ReceivePane';
-import { Spectrum } from './Spectrum';
 
 interface ReceiverProps {
   utc: string;
   frequency: number;
   mode: string;
-  clarity: number;
   signalMeter: number;
   noiseMeter: number;
   lines: string[];
@@ -46,12 +44,10 @@ export function ReceiverScreen(props: ReceiverProps) {
       </header>
       <FrequencyDisplay frequency={props.frequency} mode={props.mode} />
       <p className={`status ${distress ? 'distress-txt' : ''}`}>{headerText}</p>
-      <Spectrum clarity={props.clarity} />
       <div className="meters-row">
         <Meter label="SIGNAL" value={props.signalMeter} />
         <Meter label="NOISE" value={props.noiseMeter} danger={props.noiseMeter > 7 || distress} />
       </div>
-      <ReceivePane lines={props.lines} distress={distress} />
       <Controls
         onDown={props.tuneDown}
         onUp={props.tuneUp}
@@ -62,6 +58,7 @@ export function ReceiverScreen(props: ReceiverProps) {
         scanning={props.scanning}
         step={props.step}
       />
+      <ReceivePane lines={props.lines} distress={distress} />
     </section>
   );
 }
